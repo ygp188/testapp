@@ -12,11 +12,11 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static('client/dist'));
+app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
 app.use('/api/posts', postsRouter);
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => console.log(`Started on port ${PORT}`));
