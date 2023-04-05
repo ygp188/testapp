@@ -13,12 +13,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use(
-  express.static(path.resolve(__dirname, 'client', 'build', 'index.html')),
+  express.static(path.resolve(__dirname, 'client', 'dist', 'index.html')),
 );
 app.use('/api/posts', postsRouter);
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => console.log(`Started on port ${PORT}`));
